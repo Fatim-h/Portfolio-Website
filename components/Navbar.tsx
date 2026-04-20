@@ -17,7 +17,6 @@ export default function Navbar() {
     <nav className="flex p-6">
       
       <div className="pl-4 w-1/4">
-        <h1 className="font-bold">MyPortfolio</h1>
       </div>
 
       <div className="w-2/4 flex justify-center space-x-20 
