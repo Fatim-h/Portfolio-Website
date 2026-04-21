@@ -2,7 +2,6 @@ import { IconType } from "react-icons";
 
 type SkillProps = {
   title: string;
-  level: number;
   icon: IconType;
 };
 
