@@ -62,7 +62,7 @@ export default function ProjectsCarousel() {
         className="flex overflow-x-auto scroll-smooth gap-6 px-10 py-8 scrollbar-hide"
       >
         {projects.map((p, i) => (
-          <div key={i} className="flex-shrink-0 w-[280px]">
+          <div key={i} className="shrink-0 w-70">
             <GlassyCard {...p} />
           </div>
         ))}

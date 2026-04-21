@@ -13,31 +13,19 @@ const getColor = (level: number) => {
   return "bg-red-400";
 };
 
-export default function SkillCard({ title, level, icon: Icon }: SkillProps) {
+export default function SkillCard({ title, icon: Icon }: SkillProps) {
   return (
     <div
-      className="w-full max-w-[260px] p-5 rounded-2xl
-      bg-white/10 backdrop-blur-md
-      border border-cyan-400/20
-      shadow-[0_0_20px_rgba(0,255,255,0.15)]
-      hover:shadow-[0_0_30px_rgba(0,255,255,0.3)]
-      transition-all"
-    >
+      className="w-full max-w-40 p-4
+      transition-all duration-300
+      hover:text-cyan-200
+      hover:drop-shadow-[0_0_18px_rgba(34,211,238,1)]">
       {/* Icon + Title */}
-      <div className="flex items-center gap-3 mb-3 text-white">
-        <Icon className="text-2xl text-cyan-300" />
-        <h3 className="font-semibold">{title}</h3>
-      </div>
-
-      {/* Progress bar */}
-      <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-        <div
-          className={`h-full ${getColor(level)} shadow-[0_0_10px_rgba(34,211,238,0.5)] rounded-full`}
-          style={{ width: `${level}%` }}
-        />
-      </div>
-
-      <p className="text-xs text-gray-400 mt-2">{level}%</p>
+        <div className="flex flex-col items-center gap-2 mb-3 text-white">
+          <Icon className="text-2xl text-cyan-300 
+           drop-shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+          <h3 className="font-semibold">{title}</h3>
+        </div>
     </div>
   );
 }

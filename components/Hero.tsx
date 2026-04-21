@@ -23,7 +23,7 @@ export default function Hero() {
           />
         </div>
 
-        <div className="hidden md:block w-px h-60 bg-gradient-to-b from-transparent via-gray-700 to-transparent mx-6"></div>
+        <div className="hidden md:block w-px h-60 bg-linear-to-b from-transparent via-gray-700 to-transparent mx-6"></div>
 
         {/* TEXT */}
         <div className="max-w-lg text-center md:text-left">
@@ -34,7 +34,7 @@ export default function Hero() {
 
           <p className="text-gray-300 mb-2">
             I'm <span className="text-cyan-400 font-semibold">Fatimah Riaz</span>.
-            A Full-Stack Developer transitioning into AI(ML)
+            A Full-Stack Developer now developing AI(ML) applications
           </p>
 
           <p className="text-gray-400 mb-4">

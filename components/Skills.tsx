@@ -1,40 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import SkillCard from "@/components/SkillCard";
 import { skills } from "@/data/skills";
-import { useRef } from "react";
 
-const categories = ["All", "Frontend", "Backend", "Data Science", "Tools", "Design"];
+const categories = [
+  "All",
+  "Frontend",
+  "Backend",
+  "DS-AI-ML",
+  "Tools",
+  "Design and Digital Art",
+];
 
 export default function Skills() {
   const [active, setActive] = useState("All");
+  const [isHovered, setIsHovered] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const filtered =
     active === "All"
       ? skills
       : skills.filter((s) => s.category === active);
 
-    const containerRef = useRef<HTMLDivElement>(null);
+  // ✅ only loop if enough items
+  const shouldLoop = filtered.length >= 7;
+  const displaySkills = shouldLoop ? [...filtered, ...filtered] : filtered;
 
-const scroll = (direction: "left" | "right") => {
+  // ✅ manual scroll (only useful if many items)
+  const scroll = (direction: "left" | "right") => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const scrollAmount = 220;
+
+    container.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
   const container = containerRef.current;
-  if (!container) return;
+  if (!container || !shouldLoop || isHovered) return;
 
-  const scrollAmount = 300;
+  const interval = setInterval(() => {
+    container.scrollLeft += 2;
 
-  container.scrollBy({
-    left: direction === "left" ? -scrollAmount : scrollAmount,
-    behavior: "smooth",
-  });
-};
+    if (container.scrollLeft >= container.scrollWidth / 2) {
+      container.scrollLeft = 0;
+    }
+  }, 20);
+
+  return () => clearInterval(interval);
+}, [filtered, shouldLoop, isHovered]);
+
+  const canScroll = filtered.length > 4;
 
   return (
-    <div className="w-full mx-auto py-10 space-y-8 bg-cyan-950 border-cyan-400/20 
-          backdrop-blur-sm   rounded-2xl">
-
+    <div
+      className="w-full mx-auto py-4 space-y-2 
+      bg-cyan-950 border border-cyan-400/20 
+      backdrop-blur-sm rounded-2xl"
+    >
       {/* Tabs */}
-      <div className="flex flex-wrap gap-3 px-10">
+      <div className="flex flex-wrap gap-3 px-6">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -51,47 +81,39 @@ const scroll = (direction: "left" | "right") => {
         ))}
       </div>
 
-      {/* Skills Carousel */}
-<div className="relative px-10 ">
+      {/* Carousel */}
+      <div className="relative">
 
-  {/* Left Arrow */}
-  <button
-    onClick={() => scroll("left")}
-    className="absolute left-2 top-1/2 -translate-y-1/2 z-10
-    text-white text-2xl bg-black/30 px-3 py-2 rounded-full
-    hover:bg-cyan-500/30 transition"
-  >
-    {"<"}
-  </button>
+        {/* Arrows (only if needed) */}
+        {canScroll && (
+          <>
+            <button
+              onClick={() => scroll("left")}
+            >
+            </button>
 
-  {/* Right Arrow */}
-  <button
-    onClick={() => scroll("right")}
-    className="absolute right-2 top-1/2 -translate-y-1/2 z-10
-    text-white text-2xl bg-black/30 px-3 py-2 rounded-full
-    hover:bg-cyan-500/30 transition"
-  >
-    {">"}
-  </button>
+            <button
+              onClick={() => scroll("right")}
+            >
+            </button>
+          </>
+        )}
 
-  {/* Scroll Row */}
-  <div
-    ref={containerRef}
-    className="flex overflow-x-auto gap-8 scroll-smooth scrollbar-hide px-10 py-8"
-  >
-    {filtered.map((s, i) => (
-      <div key={i} className="flex-shrink-0 w-[240px]">
-        <SkillCard
-          title={s.title}
-          level={s.level}
-          icon={s.icon}
-        />
+        {/* Scroll Row */}
+        <div
+          ref={containerRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="flex overflow-x-auto scroll-smooth scrollbar-hide py-6 px-2"
+        >
+          {displaySkills.map((s, i) => (
+            <div key={i} className="shrink-0 w-40">
+              <SkillCard title={s.title} icon={s.icon} />
+            </div>
+          ))}
+        </div>
+
       </div>
-    ))}
-  </div>
-
-</div>
-
     </div>
   );
 }
