@@ -15,7 +15,7 @@ export default function Hero() {
         
         {/* IMAGE */}
         <div className="relative">
-          <div className="absolute inset-0 bg-blue-400 rounded-full blur-3xl opacity-10 soft-pulse"></div>
+          <div className="absolute inset-0 bg-cyan-400 rounded-full blur-3xl opacity-10 soft-pulse"></div>
           <img
             src="/profile.png"
             alt="profile"
@@ -33,7 +33,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-gray-300 mb-2">
-            I'm <span className="text-blue-400 font-semibold">Fatimah Riaz</span>.
+            I'm <span className="text-cyan-400 font-semibold">Fatimah Riaz</span>.
             A Full-Stack Developer transitioning into AI(ML)
           </p>
 
@@ -46,7 +46,7 @@ export default function Hero() {
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="text-xs text-blue-300 border border-blue-900 bg-blue-950/50 px-3 py-1 rounded-full"
+                className="text-xs text-cyan-300 border border-gray-500 bg-cyan-800/50 px-3 py-1 rounded-full"
               >
                 {skill}
               </span>
@@ -56,14 +56,14 @@ export default function Hero() {
           <div className="flex gap-3 justify-center md:justify-start">
             <button
               className="
-                bg-blue-600
-                hover:bg-blue-700
+                bg-cyan-400
+                hover:bg-cyan-200
                 transition-all duration-300
                 px-6 py-3 rounded-lg
                 text-sm font-medium text-white
-            
-                shadow-[0_0_10px_rgba(59,130,246,0.5)]
-                hover:shadow-[0_0_20px_rgba(59,130,246,0.9),0_0_40px_rgba(59,130,246,0.4)]
+                hover:text-cyan-800
+                shadow-[0_0_10px_rgba(34,211,238,0.5)]
+                hover:shadow-[0_0_20px_rgba(34,211,238,0.9),0_0_40px_rgba(34,211,238,0.4)]
               "
             >
               Download CV

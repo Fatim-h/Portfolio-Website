@@ -6,15 +6,15 @@ export default function SocialBar() {
       <div className="w-px h-24 bg-gray-600 mt-2"></div>
 
       <a href="https://github.com/Fatim-h" target="_blank">
-        <FaGithub className="text-gray-400 hover:text-white text-2xl transition" />
+        <FaGithub className="text-cyan-200 hover:text-white text-2xl transition" />
       </a>
 
       <a href="https://www.linkedin.com/in/fatimah-riaz-o6j/" target="_blank">
-        <FaLinkedin className="text-gray-400 hover:text-white text-2xl transition" />
+        <FaLinkedin className="text-cyan-200 hover:text-white text-2xl transition" />
       </a>
 
       <a href="https://www.pinterest.com/penanagains/_created" target="_blank">
-        <FaPinterest className="text-gray-400 hover:text-white text-2xl transition" />
+        <FaPinterest className="text-cyan-200 hover:text-white text-2xl transition" />
       </a>
 
       <div className="w-px h-24 bg-gray-600 mt-2"></div>

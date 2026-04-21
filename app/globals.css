@@ -24,6 +24,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 @keyframes soft-pulse {
@@ -39,4 +41,13 @@ body {
 
 .soft-pulse {
   animation: soft-pulse 5s ease-in-out infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
