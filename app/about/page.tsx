@@ -1,5 +1,5 @@
-import ProjectsCarousel from "@/components/ProjectsCarousel.tsx";
-import Skills from "@/components/Skills.tsx";
+import ProjectsCarousel from "@/components/ProjectsCarousel";
+import Skills from "@/components/Skills";
 
 
 export default function About() {
