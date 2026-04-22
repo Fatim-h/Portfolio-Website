@@ -12,7 +12,7 @@ export default function ProjectsCarousel() {
     const container = containerRef.current;
     if (!container) return;
 
-    const cardWidth = 300; // fixed card width + gap feel
+    const cardWidth = 300;
     container.scrollTo({
       left: i * cardWidth,
       behavior: "smooth",
@@ -32,7 +32,7 @@ export default function ProjectsCarousel() {
   };
 
   return (
-    <div className="relative mt-10">
+    <div className="relative mt-2">
 
       {/* Left button */}
       <button
@@ -59,7 +59,7 @@ export default function ProjectsCarousel() {
       {/* Carousel */}
       <div
         ref={containerRef}
-        className="flex overflow-x-auto scroll-smooth gap-6 px-10 py-8 scrollbar-hide"
+        className="flex overflow-x-auto scroll-smooth gap-6 px-10 py-6 scrollbar-hide"
       >
         {projects.map((p, i) => (
           <div key={i} className="shrink-0 w-70">
@@ -67,6 +67,12 @@ export default function ProjectsCarousel() {
           </div>
         ))}
       </div>
+      <a href="/projects"
+        className=" text-gray-500 hover:text-white transition-colors rounded-lg text-sm font-medium"
+       >
+         View Projects →
+      </a>
+
     </div>
   );
 }

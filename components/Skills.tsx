@@ -59,7 +59,7 @@ export default function Skills() {
 
   return (
     <div
-      className="w-full mx-auto py-4 space-y-2 
+      className="w-full mt-6 mx-auto py-4 space-y-2 
       bg-cyan-950 border border-cyan-400/20 
       backdrop-blur-sm rounded-2xl"
     >

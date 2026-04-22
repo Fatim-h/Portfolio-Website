@@ -51,3 +51,7 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
