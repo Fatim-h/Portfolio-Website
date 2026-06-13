@@ -54,6 +54,7 @@ export default function Hero() {
           </div>
           
           <div className="flex gap-3 justify-center md:justify-start">
+            <a href="/Resume.pdf" download="Fatimah_Riaz_Resume.pdf" className="inline-block">
             <button
               className="
                 bg-cyan-400
@@ -68,6 +69,7 @@ export default function Hero() {
             >
               Download CV
             </button>
+            </a>
 
              <a href="/projects"
               className=" text-gray-500 hover:text-white transition-colors px-6 py-3 rounded-lg text-sm font-medium"
